@@ -1,0 +1,30 @@
+{{> navHome}}
+
+<main class="container mx-auto min-h-[80vh] grid place-content-center">
+    <section class="h-full p-10 max-w-2xl mx-2 bg-[#F8F4EA] rounded-lg">
+        <h3 class="text-center pb-4">Registrarse</h3>
+        <form action="" id="formSign" class="md:min-w-[50vh]">
+            <div class="flex flex-col">
+                <label for="name" class="mb-2 text-sm font-medium text-gray-800">Nombre</label>
+                <input type="text" name="name" class="w-full bg-gray-50 border border-gray-300 rounded-md" required>
+                <label for="email" class="mt-4 text-sm font-medium text-gray-800">Email</label>
+                <input type="email" name="email" class="w-full bg-gray-50 border border-gray-300 rounded-md" required>
+                <label for="password" class="mt-4 mb-2 text-sm font-medium text-gray-800">Password</label>
+                <input type="password" name="password" class="w-full bg-gray-50 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <p id="msgError" class="text-red-700 text-center text-sm"></p>
+            </div>
+            <div class="flex justify-center my-4">
+                <button type="submit" class="bg-[#579BB1] text-white items-center py-1 px-4 border border-gray-300 rounded-lg shadow-lg shadow-[#579BB1]/60 hover:bg-[#72CAE8]">Sign In</button>
+            </div>
+            <div>
+                <p class="text-sm">¿Ya tienes una cuenta? <span> <a class="text-[#579BB1] italic" href="/user/sesion">Inicia Sesión</a> </span> </p>
+            </div>
+        </form>
+    </section>
+</main>
+
+{{> footer}}
+
+<script type="module" src="../js/signIn.js"></script>
