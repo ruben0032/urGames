@@ -5,14 +5,14 @@ const { Op } = require("sequelize");
 
 module.exports = {
     getGames: async ()=>{
-        const games = await Game.findAll({ raw: true, order: [['createdAt','DESC']], limit: 9 });    //raw: metodo para entregar respuesta plana
+        const games = await Game.findAll({ raw: true, order: [['publicDate','DESC']], limit: 9 });    //raw: metodo para entregar respuesta plana
         return games;
     },
 
     getGamesPage: async (page)=> {
         try {
             const set = page*9;
-            const gamesPage = await Game.findAll({raw: true, order: [['createdAt','DESC']], offset: set, limit: 9});
+            const gamesPage = await Game.findAll({raw: true, order: [['publicDate','DESC']], offset: set, limit: 9});
             if (!gamesPage[0]) {throw error}
             return gamesPage;    
         } catch (error) {
@@ -31,13 +31,15 @@ module.exports = {
     },
     postGame: async (videojuego)=>{
         try {
-            const {title, year, studio, urlImage, t} = videojuego;
+            const {title, description, publicDate, studio, urlImage, t} = videojuego;
             const newGame = await Game.create({ //create: metodo para crear nuevo juego
                 title,
-                year, 
+                description,
+                publicDate, 
                 studio, 
                 urlImage
             },{transaction: t});
+            console.log(newGame);
             if (!newGame) {throw error}
             return newGame.id;    
         } catch (error) {
@@ -46,9 +48,9 @@ module.exports = {
     },
     updateGame: async (videojuego)=>{
         try {
-            const {id, year, urlImage} = videojuego;
+            const {id, publicDate, urlImage} = videojuego;
             const updateGame = await Game.update({
-                year: year, urlImage:urlImage
+                publicDate: publicDate, urlImage:urlImage
             },{where:{id: id}});
             if (!updateGame) {throw error}
             return updateGame;

@@ -62,8 +62,8 @@ module.exports = {
         const t = await sequelize.transaction();    //Metodo sequalize para realizar transaccion
         try {
             let queryError = false;
-            const {title, year, studio, urlImage, listCategory} = req.body;
-            const gameId = await gameQuerys.postGame({title, year, studio, urlImage, t});
+            const {title, description, publicDate, studio, urlImage, listCategory} = req.body;
+            const gameId = await gameQuerys.postGame({title, description, publicDate, studio, urlImage, t});
             for (let index = 0; index < listCategory.length; index++) { //enviar info a categoryGame
                 let categoryId = listCategory[index];
                 let response = await categoryGameQuerys.postCategoryGame({gameId, categoryId, t})
@@ -89,8 +89,8 @@ module.exports = {
 
     putGame: async (req, res) => {  //Editar datos de game
         try {
-            const {id, year, urlImage} = req.body;
-            const updateGame = await gameQuerys.updateGame({id, year, urlImage});
+            const {id, publicDate, urlImage} = req.body;
+            const updateGame = await gameQuerys.updateGame({id, publicDate, urlImage});
             if (updateGame.code) {
                 res.send({message:`No fué posible editar el Videojuego`, code:404});
             } else {

@@ -2,7 +2,7 @@
 
 <main class="container mx-auto">
     <section class="flex flex-col items-center justify-center px-4 my-10">
-        <div class="bg-[#F8F4EA] shadow-lg rounded-lg p-4">
+        <div class="bg-secondary-100 shadow-lg rounded-lg p-4">
             <div>
                 <h2 class="text-2xl text-center pb-6">{{this.name}}</h2>
                 <img src="../../img/profile.png" class="w-52 md:w-56" alt="">
@@ -16,7 +16,7 @@
 
     <section>
         <div class="flex justify-start">
-            <button id="seeReview" class="bg-[#E1D7C6] rounded-lg px-2 py-1 my-2 hover:bg-[#579BB1]">Ver Mis Reseñas</button>
+            <button id="seeReview" class="bg-secondary-300 rounded-lg px-2 py-1 my-2 hover:bg-secondary-100">Ver Mis Reseñas</button>
         </div>
         <div class="flex flex-col">
             <p id="msgSuccess" class="text-green-700 text-start text-sm"></p>
@@ -24,7 +24,7 @@
         </div>
         <div class="" id="reviewsUser">
             {{!-- {{#each rows}}
-            <article class="bg-[#F8F4EA] shadow-lg rounded-lg my-4 p-4">
+            <article class="bg-secondary-100 shadow-lg rounded-lg my-4 p-4">
                 <p>{{this.userName}}</p>
                 <p>Puntuación: {{this.score}}</p>
                 <p>Comentarios: {{this.content}}</p>

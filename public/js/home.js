@@ -49,7 +49,7 @@ const reloadCards = async (games)=> {
     games.forEach(element => {
         let newDiv = document.createElement("div"); //Crear división
         newDiv.setAttribute("data-info", `${element.id}`)   //integrar atributos a la div
-        newDiv.setAttribute("class", "card bg-[#F8F4EA] flex flex-col items-center p-2 shadow-lg rounded-lg hover:cursor-pointer")
+        newDiv.setAttribute("class", "card bg-secondary-100 flex flex-col items-center p-2 shadow-lg rounded-lg hover:cursor-pointer")
         let newP1 = document.createElement("p");    //Crear parrafo
         newP1.setAttribute("class", "text-xl font-semibold py-4");
         newP1.innerText = `${element.title}`;
@@ -60,7 +60,7 @@ const reloadCards = async (games)=> {
         newDiv.appendChild(newImg); //Insertar elementos en div
         let newP2 = document.createElement("p");    //Crear parrafo
         newP2.setAttribute("class", "pt-2");
-        newP2.innerText = `${element.year}`;
+        newP2.innerText = `${element.studio}`;
         newDiv.appendChild(newP2);  //Insertar elementos en div
 
         gamesCards.appendChild(newDiv); //Agregar juego a nueva div

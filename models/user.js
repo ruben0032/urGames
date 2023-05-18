@@ -22,6 +22,11 @@ const User = sequelize.define("user", { //define:metodo para crear tablas en db
     name:{
         type: DataTypes.STRING,
         allowNull: false
+    },
+    access:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 });
 

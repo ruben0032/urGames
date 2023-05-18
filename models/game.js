@@ -13,9 +13,13 @@ const Game = sequelize.define("game", { //define:metodo para crear tablas en db
         type: DataTypes.STRING,
         allowNull: false
     },
-    year:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
+    description:{
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    publicDate:{
+        type: DataTypes.DATEONLY,
+        allowNull: false 
     },
     studio:{
         type: DataTypes.STRING,

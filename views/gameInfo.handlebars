@@ -2,13 +2,13 @@
 
 <main class="container mx-auto">
     <section class="flex flex-col items-center justify-center px-4 my-10">
-        <div class="bg-[#F8F4EA] shadow-lg rounded-lg p-4">
+        <div class="bg-secondary-100 shadow-lg rounded-lg p-4">
             <div>
                 <h2 class="text-2xl text-center pb-6">{{this.juego.title}}</h2>
                 <img src="{{this.juego.urlImage}}" class="h-96" alt="">
             </div>
             <div class="flex flex-col pt-4">
-                <p>Año: {{this.juego.year}}</p>
+                <p>Fecha lanzamiento: {{this.juego.publicDate}}</p>
                 <p>Estudio: {{this.juego.studio}}</p>
             </div>
             <div>
@@ -22,7 +22,7 @@
     </section>
     <section>
         <div class="flex justify-start">
-            <button id="addReview" class="bg-[#E1D7C6] rounded-lg px-2 py-1 my-2 hover:bg-[#579BB1]">Agregar Reseña</button>
+            <button id="addReview" class="bg-secondary-200 rounded-lg px-2 py-1 my-2 hover:bg-secondary-100/80">Agregar Reseña</button>
         </div>
         <div class="flex flex-col">
             <p id="msgSuccess" class="text-green-700 text-start text-sm"></p>
@@ -49,13 +49,13 @@
                     <textarea form="formReview" name="content" id="" cols="" rows="5" maxlength="150" class="w-full bg-gray-50 border border-gray-300 rounded-md" required></textarea>
                 </div>
                 <div class="flex justify-center my-4">
-                    <button type="submit" class="bg-[#579BB1] text-white items-center py-1 px-4 border border-gray-300 rounded-lg shadow-lg shadow-[#579BB1]/60 hover:bg-[#72CAE8]">Comentar</button>
+                    <button type="submit" class="bg-secondary-300 items-center py-1 px-4 border border-gray-300 rounded-lg shadow-lg transition ease-in-out duration-300 hover:scale-110">Comentar</button>
                 </div>
             </form>
         </div>
         <div class="">
             {{#each this.reseñas}}
-            <article class="bg-[#F8F4EA] shadow-lg rounded-lg my-4 p-4">
+            <article class="bg-secondary-100 shadow-lg rounded-lg my-4 p-4">
                 <p>{{this.userName}}</p>
                 <p>Puntuación: {{this.score}}</p>
                 <p>Comentarios: {{this.content}}</p>
