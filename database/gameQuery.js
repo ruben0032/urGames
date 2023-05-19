@@ -48,9 +48,9 @@ module.exports = {
     },
     updateGame: async (videojuego)=>{
         try {
-            const {id, title} = videojuego;
+            const {id, publicDate, urlImage} = videojuego;
             const updateGame = await Game.update({
-                title: title
+                publicDate: publicDate, urlImage:urlImage
             },{where:{id: id}});
             if (!updateGame) {throw error}
             return updateGame;

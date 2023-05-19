@@ -89,8 +89,8 @@ module.exports = {
 
     putGame: async (req, res) => {  //Editar datos de game
         try {
-            const {id, title} = req.body;
-            const updateGame = await gameQuerys.updateGame({id, title});
+            const {id, publicDate, urlImage} = req.body;
+            const updateGame = await gameQuerys.updateGame({id, publicDate, urlImage});
             if (updateGame.code) {
                 res.send({message:`No fué posible editar el Videojuego`, code:404});
             } else {
