@@ -17,7 +17,7 @@
 </header>
 
 <main class="container mx-auto">
-    <section id="gamesCards" class="grid md:grid-cols-3 gap-14 py-10 md:px-10 mx-4">
+    <section id="gamesCards" class="grid md:grid-cols-3 lg:grid-cols-4 gap-12 py-10 md:px-10 mx-4">
         {{#each response}}
         <div data-info="{{this.id}}" class="card bg-secondary-100 flex flex-col items-center text-center p-2 shadow-lg rounded-lg hover:cursor-pointer">
             <p class="text-xl font-semibold py-4 ">{{this.title}}</p>

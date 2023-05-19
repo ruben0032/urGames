@@ -756,6 +756,10 @@ video {
   gap: 3.5rem;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -858,6 +862,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .pb-6 {
   padding-bottom: 1.5rem;
 }
@@ -892,6 +901,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .text-start {
@@ -1077,5 +1090,11 @@ video {
   .md\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
