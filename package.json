@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailw": "npx tailwindcss -i ./public/css/style.css -o ./public/css/tailwind.css --minify",
+    "tailw": "npx tailwindcss -i ./public/css/style.css -o ./public/css/tailwind.css --watch",
     "dev": "nodemon index.js"
   },
   "author": "K & R",

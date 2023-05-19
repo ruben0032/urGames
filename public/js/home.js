@@ -49,7 +49,7 @@ const reloadCards = async (games)=> {
     games.forEach(element => {
         let newDiv = document.createElement("div"); //Crear división
         newDiv.setAttribute("data-info", `${element.id}`)   //integrar atributos a la div
-        newDiv.setAttribute("class", "card bg-secondary-100 flex flex-col items-center p-2 shadow-lg rounded-lg hover:cursor-pointer")
+        newDiv.setAttribute("class", "card bg-secondary-100 flex flex-col items-center text-center p-2 shadow-lg rounded-lg hover:cursor-pointer")
         let newP1 = document.createElement("p");    //Crear parrafo
         newP1.setAttribute("class", "text-xl font-semibold py-4");
         newP1.innerText = `${element.title}`;
