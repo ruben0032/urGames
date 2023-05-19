@@ -764,6 +764,14 @@ video {
   gap: 3rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -1118,5 +1126,9 @@ video {
 
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .xl\:gap-12 {
+    gap: 3rem;
   }
 }
