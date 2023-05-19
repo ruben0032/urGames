@@ -37,7 +37,7 @@ module.exports = {
             let reseñas = [];
             const {id} = req.params; 
             const response = await gameQuerys.getGame(id);  //recibir informacion del juego
-            if (response.reviews) {
+            if (response.reviews[0]) {
                 response.reviews.forEach(e => {
                     promedio = promedio + e.score;
                     reseñas.push({...e.dataValues});
