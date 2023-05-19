@@ -55,7 +55,7 @@ const reloadCards = async (games)=> {
         newP1.innerText = `${element.title}`;
         newDiv.appendChild(newP1);  //Insertar elementos en div
         let newImg = document.createElement("img"); //Crear imagen
-        newImg.setAttribute("class", "h-64 w-[60%] rounded-lg");
+        newImg.setAttribute("class", "h-60 xl:h-52 rounded-lg");
         newImg.setAttribute("src", `${element.urlImage}`);
         newDiv.appendChild(newImg); //Insertar elementos en div
         let newP2 = document.createElement("p");    //Crear parrafo

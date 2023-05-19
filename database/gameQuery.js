@@ -5,14 +5,14 @@ const { Op } = require("sequelize");
 
 module.exports = {
     getGames: async ()=>{
-        const games = await Game.findAll({ raw: true, order: [['publicDate','DESC']], limit: 9 });    //raw: metodo para entregar respuesta plana
+        const games = await Game.findAll({ raw: true, order: [['publicDate','DESC']], limit: 12 });    //raw: metodo para entregar respuesta plana
         return games;
     },
 
     getGamesPage: async (page)=> {
         try {
-            const set = page*9;
-            const gamesPage = await Game.findAll({raw: true, order: [['publicDate','DESC']], offset: set, limit: 9});
+            const set = page*12;
+            const gamesPage = await Game.findAll({raw: true, order: [['publicDate','DESC']], offset: set, limit: 12});
             if (!gamesPage[0]) {throw error}
             return gamesPage;    
         } catch (error) {
