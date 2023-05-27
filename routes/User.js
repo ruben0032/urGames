@@ -10,12 +10,9 @@ router.use("*/:idUser/:token", (req, res, next)=>{  //middleware para token
     try {
         const {token, idUser} = req.params;
         let decoded = jwt.verify(token, jwtKey);
-        console.log("************");
-        console.log(decoded);
         if (decoded.data.id !== Number(idUser)) {
             throw new Error()
         }
-        console.log(decoded);
         next();   
     } catch (error) {
         res.redirect("/")

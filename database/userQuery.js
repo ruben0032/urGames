@@ -8,7 +8,6 @@ module.exports = {
             let {email, password, name} = usuario
             const passHash = await hash.hashPass(password); //Hasheo password
             password = passHash
-            console.log(password);
             if (passHash.code) {
                 throw error
             };

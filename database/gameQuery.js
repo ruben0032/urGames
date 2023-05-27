@@ -39,7 +39,6 @@ module.exports = {
                 studio, 
                 urlImage
             },{transaction: t});
-            console.log(newGame);
             if (!newGame) {throw error}
             return newGame.id;    
         } catch (error) {

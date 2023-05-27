@@ -18,7 +18,6 @@ $("#formSign").event("submit", async (e)=> {
     e.preventDefault();
     const dataForm = Object.fromEntries(new FormData(e.target));    //Extraer info de formulario
     const response = await postNewUser(dataForm);
-    console.log(response)
     if (response.code == 200) {
         alert("Usuario registrado con éxito")
         window.open("/user/sesion", '_self');

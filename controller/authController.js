@@ -13,11 +13,9 @@ module.exports = {
         try {
             const {email, password} = req.body;
             const response = await getUser({email});
-            const {id} = response;  //para token
+            const {id, access} = response;  //para token
             const hashPass = response.password;
             const compare = await hash.comparePass(password, hashPass);
-            console.log(hashPass);
-            console.log(compare)
             if (response.code) {    //En caso de que ususario no exista o password
                 res.send(response);
             } else if (compare.code) {
@@ -26,7 +24,7 @@ module.exports = {
                 const token = jwt.sign( //Generar token
                     {
                         exp: Math.floor(Date.now()/1000)+jwtExpirySeconds,
-                        data: {id}
+                        data: {id, access}
                     },
                     jwtKey
                 );

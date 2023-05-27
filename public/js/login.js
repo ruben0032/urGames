@@ -32,7 +32,6 @@ $("#formLogin").event("submit", async (e)=> {
     const dataForm = Object.fromEntries(new FormData(e.target));    //Extraer info de formulario
     const response = await postForm(dataForm);
     removeToken();
-    console.log(response)
     const user = response.infoUser;
     if (response.code == 200) { //guardar token
         saveToken(response.token, user)

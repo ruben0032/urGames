@@ -49,7 +49,6 @@ $("#formReview").event("submit", async (e)=> {
     dataForm.score = Number(dataForm.score);
     const idUser = Number(localStorage.getItem("gamescore-userId"));
     const userName = localStorage.getItem("gamescore-userName");
-    console.log({...dataForm, idUser, userName});
     const response = await postReview({...dataForm, idUser, userName});
     if (response.code == 200) {
         $("#msgSuccess")[0].innerText = response.message; //mensaje de exito
@@ -68,7 +67,6 @@ $("#formReview").event("submit", async (e)=> {
             location.reload();
         }, 3000)
     }
-    console.log(response);
 });
 
 $(".profile").event("click", async (e)=>{   //Abrir pagina de perfil
