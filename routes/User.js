@@ -11,7 +11,7 @@ router.use("*/:user/:token", (req, res, next)=>{  //middleware para token
         const {token, user} = req.params;
         let decoded = jwt.verify(token, jwtKey);
         console.log(decoded);
-        if (decoded.id !== user) {
+        if (decoded.data.id !== user) {
             throw new Error()
         }
         next();   
