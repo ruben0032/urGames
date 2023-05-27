@@ -9,12 +9,13 @@ const jwtKey = "ClaveTemporalJWT";
 router.use("*/:user/:token", (req, res, next)=>{  //middleware para token
     try {
         const {token, user} = req.params;
-        user = Number(user)
         let decoded = jwt.verify(token, jwtKey);
+        console.log("************");
         console.log(decoded);
-        if (decoded.data.id !== user) {
+        if (decoded.data.id !== Number(user)) {
             throw new Error()
         }
+        console.log(decoded);
         next();   
     } catch (error) {
         res.redirect("/")
