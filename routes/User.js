@@ -6,18 +6,14 @@ const authController = require("../controller/authController.js");
 const jwt = require("jsonwebtoken");
 const jwtKey = "ClaveTemporalJWT";
 
-router.use("*/:idUser/:token", (req, res, next)=>{  //middleware para token
+router.use("*/:user/:token", (req, res, next)=>{  //middleware para token
     try {
-        const {token} = req.params;
-        console.log(token);
-        jwt.verify(token, jwtKey, (error, decoded)=>{    //Verificar token
-            const {data} = decoded;
-            const {id} = data;
-            if (!id) {
-                throw error
-            };
-            next();
-        });    
+        const {token, user} = req.params;
+        let decoded = jwt.verify(token, jwtKey);
+        if (decoded.id !== user) {
+            throw new Error()
+        }
+        next();   
     } catch (error) {
         res.redirect("/")
     }
@@ -35,7 +31,7 @@ router.get("/sesion", userController.initSesion);
 
 router.get("/signin", userController.signUser);
 
-router.get("/:idUser/:token", userController.getProfile);
+router.get("/:user/:token", userController.getProfile);
 
 
 module.exports = router;
