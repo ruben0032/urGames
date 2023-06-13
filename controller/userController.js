@@ -3,7 +3,7 @@ const userQuerys = require("../database/userQuery.js");
 
 module.exports = {
 
-    postUser: async (req, res) => { //Funcion para crear usuario
+    postUser: async (req, res) => { // Funcion para crear usuario
         try {
             const {email, password, name} = req.body;
             const response = await userQuerys.postUser({email, password, name});
@@ -18,7 +18,7 @@ module.exports = {
         }
     },
 
-    putUser: async (req, res) => {  //Editar datos de usuario
+    putUser: async (req, res) => {  // Editar datos de usuario
         try {
             const {id, email, password, name} = req.body;
             const response = await userQuerys.putUser({id, email, password, name});
@@ -41,7 +41,7 @@ module.exports = {
         res.render("signIn")
     },
 
-    getProfile: async (req, res)=> {    //Datos de usuario para Perfil
+    getProfile: async (req, res)=> {    // Datos de usuario para Perfil
         try {
             const {idUser} = req.params;
             const response = await userQuerys.getUserProfile({idUser});

@@ -1,6 +1,7 @@
 const {DataTypes} = require("sequelize");
 const {sequelize} = require("../database/conexion.js");
 
+// Crear modelo
 const Review = sequelize.define("review", {
     id:{
         type: DataTypes.INTEGER,

@@ -2,8 +2,8 @@ const {DataTypes} = require("sequelize");
 const {sequelize} = require("../database/conexion.js");
 const Review = require("./review.js");
 
-//Crear modelo de usuario
-const Game = sequelize.define("game", { //define:metodo para crear tablas en db
+// Crear modelo
+const Game = sequelize.define("game", { // define:metodo para crear tablas en db
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,

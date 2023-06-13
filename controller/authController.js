@@ -13,15 +13,15 @@ module.exports = {
         try {
             const {email, password} = req.body;
             const response = await getUser({email});
-            const {id, access} = response;  //para token
+            const {id, access} = response;  // para ingresar al token
             const hashPass = response.password;
             const compare = await hash.comparePass(password, hashPass);
-            if (response.code) {    //En caso de que ususario no exista o password
+            if (response.code) {    // En caso de que ususario no exista o password
                 res.send(response);
             } else if (compare.code) {
                 res.send(compare);
             } else {
-                const token = jwt.sign( //Generar token
+                const token = jwt.sign( // Generar token
                     {
                         exp: Math.floor(Date.now()/1000)+jwtExpirySeconds,
                         data: {id, access}

@@ -6,7 +6,7 @@ const { getReviews } = require("./reviewController.js");
 
 
 module.exports = {
-    getGames: async (req, res) => {  //Funcion para ruta principal
+    getGames: async (req, res) => {  // Funcion para ruta principal
         try {
             const response = await gameQuerys.getGames();
             res.render("home",{response});    
@@ -22,7 +22,7 @@ module.exports = {
         try {
             const {page} = req.headers;
             const response = await gameQuerys.getGamesPage(page);
-            res.json(response); //Para envio de array directo con formato json
+            res.json(response); // envio de array (formato json)
         } catch (error) {
             res.status(500).send({
                 error: error.message,
@@ -33,10 +33,10 @@ module.exports = {
 
     getGame: async (req, res)=>{
         try {
-            let promedio = 0;   //Variable para calcular valoracion de reseñas
+            let promedio = 0;   // Variable para calcular valoracion de reseñas
             let reseñas = [];
             const {id} = req.params; 
-            const response = await gameQuerys.getGame(id);  //recibir informacion del juego
+            const response = await gameQuerys.getGame(id);
             if (response.reviews[0]) {
                 response.reviews.forEach(e => {
                     promedio = promedio + e.score;
@@ -47,7 +47,7 @@ module.exports = {
                 promedio = false;
             }
             const juego = {...response.dataValues};
-            (response.code) //En caso de la respuesta presente un error
+            (response.code) // En caso de la respuesta presente un error
             ? res.send(response)
             : res.render("gameInfo", {juego, reseñas, promedio});
         } catch (error) {
@@ -58,13 +58,13 @@ module.exports = {
         }
     },
 
-    postGame: async (req, res) => { //Funcion para crear game
-        const t = await sequelize.transaction();    //Metodo sequalize para realizar transaccion
+    postGame: async (req, res) => { // Funcion para crear game
+        const t = await sequelize.transaction(); // Metodo sequalize para realizar una transaccion
         try {
             let queryError = false;
             const {title, description, publicDate, studio, urlImage, listCategory} = req.body;
             const gameId = await gameQuerys.postGame({title, description, publicDate, studio, urlImage, t});
-            for (let index = 0; index < listCategory.length; index++) { //enviar info a categoryGame
+            for (let index = 0; index < listCategory.length; index++) {
                 let categoryId = listCategory[index];
                 let response = await categoryGameQuerys.postCategoryGame({gameId, categoryId, t})
                 if (response.code || gameId.code) {
@@ -87,7 +87,7 @@ module.exports = {
         }
     },
 
-    putGame: async (req, res) => {  //Editar datos de game
+    putGame: async (req, res) => {  //Editar datos de un juego
         try {
             const {id, publicDate, urlImage} = req.body;
             const updateGame = await gameQuerys.updateGame({id, publicDate, urlImage});

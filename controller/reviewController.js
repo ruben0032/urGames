@@ -1,7 +1,7 @@
 const reviewQuerys = require("../database/reviewQuery.js");
 
 module.exports = {
-    getReviews: async (req, res) => {  //Funcion para ruta principal
+    getReviews: async (req, res) => {
         try {
 
         } catch (error) {
@@ -12,7 +12,7 @@ module.exports = {
         }
     },
 
-    postReview: async (req, res) => { //Funcion para crear 
+    postReview: async (req, res) => { // Funcion para crear 
         try {
             const {idUser, idGame, userName, score, content} = req.body;
             const validateReview = await reviewQuerys.getReviewGameByUser({idUser, idGame});
@@ -32,7 +32,7 @@ module.exports = {
         }
     },
 
-    getReviewUser: async (req, res)=> { //Para perfil usuario
+    getReviewUser: async (req, res)=> { // Para perfil usuario
         try {
             const {id} = req.headers;
             const response = await reviewQuerys.getReviewsByUser({id});
@@ -45,7 +45,7 @@ module.exports = {
         }
     },
 
-    putReview: async (req, res) => {  //Editar datos 
+    putReview: async (req, res) => {  // Editar datos (pendiente)
         try {
 
         } catch (error) {

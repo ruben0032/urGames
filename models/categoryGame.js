@@ -3,7 +3,7 @@ const {sequelize} = require("../database/conexion.js");
 const Game = require("./game.js");
 const Category = require("./category.js");
 
-
+// Crear modelo
 const CategoryGame = sequelize.define('categoryGame', {
     gameId: {
       type: DataTypes.INTEGER,

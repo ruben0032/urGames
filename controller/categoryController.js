@@ -1,7 +1,7 @@
 const categoryQuerys = require("../database/categoryQuery.js");
 
 module.exports = {
-    getCategorys: async (req, res) => {  //Funcion para ruta principal
+    getCategorys: async (req, res) => { 
         try {
 
         } catch (error) {
@@ -12,7 +12,7 @@ module.exports = {
         }
     },
 
-    postCategory: async (req, res) => { //Funcion para crear 
+    postCategory: async (req, res) => { // Funcion para crear 
         try {
             const {id} = req.body;
             const response = await categoryQuerys.postCategory({id});
@@ -27,7 +27,7 @@ module.exports = {
         }
     },
 
-    putCategory: async (req, res) => {  //Editar datos 
+    putCategory: async (req, res) => {  // Editar datos (pendiente)
         try {
 
         } catch (error) {
