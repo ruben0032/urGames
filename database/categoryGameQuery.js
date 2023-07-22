@@ -1,5 +1,4 @@
 const CategoryGame = require("../models/categoryGame.js");
-const {sequelize} = require("../database/conexion.js");
 
 module.exports = {
     getCategorysGame: async ()=>{

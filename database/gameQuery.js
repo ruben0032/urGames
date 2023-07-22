@@ -1,6 +1,5 @@
 const Game = require("../models/game.js");
 const Review = require("../models/review.js");
-const {sequelize} = require("../database/conexion.js");
 const { Op } = require("sequelize");
 
 module.exports = {

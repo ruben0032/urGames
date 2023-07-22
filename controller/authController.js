@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const express = require("express");
-const app = express();
 const jwtKey = "ClaveTemporalJWT";
 const jwtExpirySeconds = 1800;  // 1/2hr
 const { getUser } = require("../database/userQuery.js");

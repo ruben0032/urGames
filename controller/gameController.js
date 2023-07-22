@@ -1,8 +1,7 @@
 const gameQuerys = require("../database/gameQuery.js");
 const categoryGameQuerys = require("../database/categoryGameQuery.js")
 const {sequelize} = require("../database/conexion.js");
-const reviewQuerys = require("../database/reviewQuery.js");
-const { getReviews } = require("./reviewController.js");
+
 
 
 module.exports = {
